@@ -36,4 +36,4 @@ Then run desired bricks in your terminal:
 mason make <brick_name>
 ```
 
-For more informations refer to [mason docs](https://docs.brickhub.dev/).
+For more informations refer to [brickhub docs](https://docs.brickhub.dev/).
