@@ -32,9 +32,13 @@ bricks:
       path: bricks/initialize
 ```
 
-Then run desired bricks in your terminal:
+Then in your terminal run:
 ```bash
-mason make <brick_name>
+# Get all bricks listend in mason.yaml
+mason get
+
+# Make desired brick (for example: initialize)
+mason make initialize
 ```
 
 For more informations refer to [brickhub docs](https://docs.brickhub.dev/).
