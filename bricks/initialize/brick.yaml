@@ -1,0 +1,25 @@
+name: initialize
+description: Brick to be called first thing after running flutter create in the root of your project.
+
+# The following defines the version and build number for your brick.
+# A version number is three numbers separated by dots, like 1.2.34
+# followed by an optional build number (separated by a +).
+version: 0.1.0+1
+
+# The following defines the environment for the current brick.
+# It includes the version of mason that the brick requires.
+environment:
+  mason: ">=0.1.0-dev.42 <0.1.0"
+
+
+vars:
+  project_name:
+    type: string
+    description: The project name
+    default: my_app
+    prompt: What is the project name?
+  org_name:
+    type: string
+    description: The organization name
+    default: com.example
+    prompt: What is the organization name?
