@@ -27,8 +27,9 @@ Open `mason.yaml` and add bricks that you want to use in your project.
 ```yaml
 bricks:
   initialize:
-    git: git@github.com:ProximaTeam/flutter_bricks.git
-    path: bricks/initialize
+    git: 
+      url: git@github.com:ProximaTeam/flutter_bricks.git
+      path: bricks/initialize
 ```
 
 Then run desired bricks in your terminal:
