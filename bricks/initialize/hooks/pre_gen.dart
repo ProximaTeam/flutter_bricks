@@ -37,11 +37,7 @@ void run(HookContext context) async {
     'meta',
     'dev:auto_route_generator',
     'dev:build_runner',
-  ]).then((value) {
-    print("WA DU HEK?");
-    print(value.stderr);
-    print(value.stdout);
-  });
+  ]);
 
   await Process.run('rm', [
     '-rf',
