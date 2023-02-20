@@ -18,5 +18,8 @@
     "titleBar.inactiveBackground": "#69140e99",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#69140e"
+  "peacock.color": "#69140e",
+  "cSpell.words": [
+    "brickhub"
+  ]
 }

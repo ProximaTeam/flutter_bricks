@@ -34,7 +34,7 @@ bricks:
 
 Then in your terminal run:
 ```bash
-# Get all bricks listend in mason.yaml
+# Get all bricks listed in mason.yaml
 mason get
 
 # Make desired brick (for example: initialize)
