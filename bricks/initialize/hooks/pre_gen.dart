@@ -46,6 +46,7 @@ void run(HookContext context) async {
   await Process.run('rm', [
     '-rf',
     '.idea',
+    '.github',
     projectFolder,
     'test',
     'web',
