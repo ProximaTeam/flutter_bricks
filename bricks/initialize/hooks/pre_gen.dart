@@ -34,6 +34,7 @@ void run(HookContext context) async {
     'pub',
     'add',
     'auto_route',
+    'meta',
     'dev:auto_route_generator',
     'dev:build_runner',
   ]).then((value) {

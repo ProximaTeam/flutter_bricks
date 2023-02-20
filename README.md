@@ -30,6 +30,10 @@ bricks:
     git: 
       url: git@github.com:ProximaTeam/flutter_bricks.git
       path: bricks/initialize
+  page:
+    git: 
+      url: git@github.com:ProximaTeam/flutter_bricks.git
+      path: bricks/page
 ```
 
 Then in your terminal run:
