@@ -1,0 +1,26 @@
+# flutter pub run flutter_native_splash:create
+flutter_native_splash:
+  branding_mode: bottom
+
+  # light theme
+  color: "#ffffff"
+  image: assets/splash_screen/light/logo.png
+  branding: assets/splash_screen/light/branding.png
+
+  # dark theme
+  color_dark: "#000000"
+  image_dark: assets/splash_screen/dark/logo.png
+  branding_dark: assets/splash_screen/dark/branding.png
+
+  android_12:
+    # light theme
+    color: "#ffffff"
+    image: assets/splash_screen/light/logo_android_12.png
+    icon_background_color: "#ffffff"
+    branding: assets/splash_screen/light/branding_android_12.png
+
+    # dark theme
+    color_dark: "#000000"
+    image_dark: assets/splash_screen/dark/logo_android_12.png
+    icon_background_color_dark: "#000000"
+    branding_dark: assets/splash_screen/dark/branding_android_12.png

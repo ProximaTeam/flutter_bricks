@@ -40,6 +40,12 @@ void run(HookContext context) async {
     'dev:build_runner',
   ]);
 
+  await Process.run('flutter', [
+    'pub',
+    'run',
+    'flutter_native_splash:create',
+  ]);
+
   await Process.run('rm', [
     '-rf',
     '.idea',
@@ -51,5 +57,8 @@ void run(HookContext context) async {
     'lib/l10n/arb',
     'lib/counter',
     'lib/app',
+    'android/app/src/main/ic_launcher-playstore.png',
+    'android/app/src/development/ic_launcher-playstore.png',
+    'android/app/src/staging/ic_launcher-playstore.png',
   ]);
 }
