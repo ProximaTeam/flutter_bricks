@@ -44,6 +44,11 @@ void run(HookContext context) async {
     '-rf',
     '.idea',
     '.github',
+    'android/app/src/main/res',
+    'android/app/src/development',
+    'android/app/src/staging',
+    'ios/Runner.xcodeproj/project.pbxproj',
+    'ios/Runner/Assets.xcassets',
     projectFolder,
     'test',
     'web',
@@ -51,10 +56,6 @@ void run(HookContext context) async {
     'lib/l10n/arb',
     'lib/counter',
     'lib/app',
-    'android/app/src/main/res',
-    'android/app/src/development',
-    'android/app/src/staging',
-    'ios/Runner.xcodeproj/project.pbxproj',
-    'ios/Runner/Assets.xcassets',
+    'coverage_badge.svg',
   ]);
 }
