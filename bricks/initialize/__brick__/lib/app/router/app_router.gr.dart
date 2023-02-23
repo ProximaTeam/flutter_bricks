@@ -41,7 +41,7 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(
           SizedBoxRoute.name,
-          path: '/sized-box',
+          path: '/',
           guards: [authGuard],
         )
       ];
@@ -57,7 +57,7 @@ class SizedBoxRoute extends PageRouteInfo<SizedBoxRouteArgs> {
     Widget? child,
   }) : super(
           SizedBoxRoute.name,
-          path: '/sized-box',
+          path: '/',
           args: SizedBoxRouteArgs(
             key: key,
             width: width,

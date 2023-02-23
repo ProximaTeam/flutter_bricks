@@ -8,6 +8,7 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   routes: [
     AutoRoute(
+      initial: true,
       page: SizedBox,
       guards: [AuthGuard],
     ),
