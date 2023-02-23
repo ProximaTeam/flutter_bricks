@@ -40,12 +40,6 @@ void run(HookContext context) async {
     'dev:build_runner',
   ]);
 
-  await Process.run('flutter', [
-    'pub',
-    'run',
-    'flutter_native_splash:create',
-  ]);
-
   await Process.run('rm', [
     '-rf',
     '.idea',
