@@ -51,8 +51,10 @@ void run(HookContext context) async {
     'lib/l10n/arb',
     'lib/counter',
     'lib/app',
-    'android/app/src/main/ic_launcher-playstore.png',
-    'android/app/src/development/ic_launcher-playstore.png',
-    'android/app/src/staging/ic_launcher-playstore.png',
+    'android/app/src/main/res',
+    'android/app/src/development',
+    'android/app/src/staging',
+    'ios/Runner.xcodeproj/project.pbxproj',
+    'ios/Runner/Assets.xcassets',
   ]);
 }
