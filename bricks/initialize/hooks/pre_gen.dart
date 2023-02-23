@@ -35,6 +35,7 @@ void run(HookContext context) async {
     'add',
     'auto_route',
     'meta',
+    'flutter_native_splash',
     'dev:auto_route_generator',
     'dev:build_runner',
   ]);
