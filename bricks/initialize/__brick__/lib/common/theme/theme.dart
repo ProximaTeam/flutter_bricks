@@ -8,6 +8,10 @@ class AppTheme {
         Colors.light,
         Typography.typography,
       ],
+      useMaterial3: true,
+      colorScheme: ColorScheme.light(
+        background: Colors.light.background,
+      ),
     );
   }
 
@@ -17,6 +21,10 @@ class AppTheme {
         Colors.dark,
         Typography.typography,
       ],
+      useMaterial3: true,
+      colorScheme: ColorScheme.dark(
+        background: Colors.dark.background,
+      ),
     );
   }
 }
