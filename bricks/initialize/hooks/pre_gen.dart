@@ -38,6 +38,8 @@ void run(HookContext context) async {
     'flutter_native_splash',
     'dev:auto_route_generator',
     'dev:build_runner',
+    'dev:theme_tailor',
+    'theme_tailor_annotation',
   ]);
 
   await Process.run('rm', [

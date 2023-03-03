@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/app/router/app_router.dart';
-import 'package:{{project_name.snakeCase()}}/app/theme/theme.dart';
+import 'package:{{project_name.snakeCase()}}/common/common.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
 class App extends StatelessWidget {
