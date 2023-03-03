@@ -1,4 +1,4 @@
-import 'package:{{project_name.snakeCase()}}/common/widgets/page_wrapper.dart';
+import 'package:{{project_name.snakeCase()}}/common/common.dart';
 import 'package:flutter/material.dart';
 
 class {{page_name.pascalCase()}}Page extends StatelessWidget {
