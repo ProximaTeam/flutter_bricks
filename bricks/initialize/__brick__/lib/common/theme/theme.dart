@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Colors, Typography;
+import 'package:flutter/services.dart';
 import 'package:{{project_name.snakeCase()}}/common/common.dart';
 
 class AppTheme {
