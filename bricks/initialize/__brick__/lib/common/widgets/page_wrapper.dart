@@ -36,7 +36,10 @@ class PageWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var widget = child ?? const SizedBox();
+    Widget widget = SizedBox(
+      width: double.infinity,
+      child: child,
+    );
 
     if (!skipSingleChildScrollView) {
       widget = singleChildScrollViewBuilder?.call(widget) ??

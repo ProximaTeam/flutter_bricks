@@ -6,6 +6,7 @@ part 'app_router.gr.dart';
 
 // flutter pub run build_runner build/watch
 @MaterialAutoRouter(
+  replaceInRouteName: 'Page,Route',
   routes: [
     AutoRoute(
       initial: true,
