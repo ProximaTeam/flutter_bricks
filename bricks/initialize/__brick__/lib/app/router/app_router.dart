@@ -10,6 +10,7 @@ part 'app_router.gr.dart';
   routes: [
     AutoRoute(
       initial: true,
+      name: 'EmptyPage',
       page: SizedBox,
       guards: [AuthGuard],
     ),
