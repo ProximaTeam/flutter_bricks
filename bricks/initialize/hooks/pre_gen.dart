@@ -59,5 +59,6 @@ void run(HookContext context) async {
     'lib/counter',
     'lib/app',
     'coverage_badge.svg',
+    'README.md',
   ]);
 }
