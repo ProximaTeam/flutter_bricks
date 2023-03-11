@@ -1,10 +1,6 @@
 part of '{{page_name.snakeCase()}}_page_cubit.dart';
 
-@immutable
-abstract class {{page_name.pascalCase()}}PageState {
-  const {{page_name.pascalCase()}}PageState();
-}
-
-class {{page_name.pascalCase()}}PageInitial extends {{page_name.pascalCase()}}PageState {
-  const {{page_name.pascalCase()}}PageInitial() : super();
+@freezed
+class {{page_name.pascalCase()}}PageState with _${{page_name.pascalCase()}}PageState {
+  const factory {{page_name.pascalCase()}}PageState.initial() = _Initial;
 }

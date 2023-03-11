@@ -36,6 +36,8 @@ void run(HookContext context) async {
     'auto_route',
     'meta',
     'flutter_native_splash',
+    'freezed_annotation',
+    'dev:freezed',
     'dev:auto_route_generator',
     'dev:build_runner',
     'dev:theme_tailor',
