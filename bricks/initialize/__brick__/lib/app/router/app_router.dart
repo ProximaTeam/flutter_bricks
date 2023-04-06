@@ -5,23 +5,21 @@ import 'package:{{project_name.snakeCase()}}/app/router/guards/auth_guard.dart';
 part 'app_router.gr.dart';
 
 // flutter pub run build_runner build/watch
-@MaterialAutoRouter(
+@AutoRouterConfig(
   replaceInRouteName: 'Page,Route',
-  routes: [
-    AutoRoute(
-      initial: true,
-      name: 'EmptyPage',
-      page: SizedBox,
-      guards: [AuthGuard],
-    ),
-  ],
 )
 class AppRouter extends _$AppRouter {
   factory AppRouter() {
-    return _instance ??= AppRouter._(authGuard: AuthGuard());
+    return _instance ??= AppRouter._();
   }
 
-  AppRouter._({required super.authGuard});
+  AppRouter._();
+
+  @override
+  RouteType get defaultRouteType => const RouteType.adaptive();
+
+  @override
+  final List<AutoRoute> routes = [];
 
   static AppRouter? _instance;
 
