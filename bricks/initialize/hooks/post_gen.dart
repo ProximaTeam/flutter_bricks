@@ -34,4 +34,12 @@ Future<void> run(HookContext context) async {
     return await run(context);
   }
   splashProgress.complete();
+
+  await File('analysis_options.yaml').writeAsString(
+    """analyzer:
+  exclude: 
+    - '**.g.dart'
+    - '**.freezed.dart'""",
+    mode: FileMode.append,
+  );
 }
