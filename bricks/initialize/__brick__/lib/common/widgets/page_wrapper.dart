@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Reusable page wrapper, build from
 /// [Scaffold] -> [SafeArea] -> [Material] -> [SingleChildScrollView].
 ///
 /// Any above mentioned widget can be skipped or replaced
-class PageWrapper extends StatelessWidget {
+class PageWrapper<T extends StateStreamableSource<Object?>>
+    extends StatelessWidget {
   const PageWrapper({
     super.key,
     this.child,
@@ -16,6 +18,7 @@ class PageWrapper extends StatelessWidget {
     this.safeAreaBuilder,
     this.materialBuilder,
     this.singleChildScrollViewBuilder,
+    this.cubit,
   });
 
   /// The widget below this widget in the tree.
@@ -34,6 +37,9 @@ class PageWrapper extends StatelessWidget {
   final SingleChildScrollView Function(Widget child)?
       singleChildScrollViewBuilder;
 
+  /// Optional cubit to be provided to the page
+  final T? cubit;
+
   @override
   Widget build(BuildContext context) {
     Widget widget = SizedBox(
@@ -49,12 +55,28 @@ class PageWrapper extends StatelessWidget {
       widget = materialBuilder?.call(widget) ?? Material(child: widget);
     }
     if (!skipSafeArea) {
-      widget = safeAreaBuilder?.call(widget) ?? SafeArea(child: widget);
+      widget = safeAreaBuilder?.call(widget) ??
+          SafeArea(
+            bottom: false,
+            child: widget,
+          );
     }
     if (!skipScaffold) {
       widget = scaffoldBuilder?.call(widget) ?? Scaffold(body: widget);
     }
 
-    return widget;
+    if (cubit != null) {
+      widget = BlocProvider(
+        create: (context) => cubit!,
+        child: widget,
+      );
+    }
+
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: widget,
+    );
   }
 }

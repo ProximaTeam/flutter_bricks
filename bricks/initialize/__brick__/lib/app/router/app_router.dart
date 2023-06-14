@@ -4,7 +4,7 @@ import 'package:{{project_name.snakeCase()}}/app/router/guards/auth_guard.dart';
 
 part 'app_router.gr.dart';
 
-// flutter pub run build_runner build/watch
+// dart run build_runner build/watch
 @AutoRouterConfig(
   replaceInRouteName: 'Page,Route',
 )
