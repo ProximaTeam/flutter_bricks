@@ -3,18 +3,21 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 void run(HookContext context) async {
-  await Process.run('mason', [
-    'add',
-    'very_good_core',
-  ]);
-  await Process.run('mason', [
+  await _handleRun(Process.run(
+    'mason',
+    [
+      'add',
+      'very_good_core',
+    ],
+  ));
+  await _handleRun(Process.run('mason', [
     'make',
     'very_good_core',
     '--project_name',
     context.vars['project_name'],
     '--org_name',
     context.vars['org_name'],
-  ]);
+  ]));
 
   final projectFolder = context.vars['project_name'].toString().snakeCase;
 
@@ -30,7 +33,7 @@ void run(HookContext context) async {
     '.',
   ]);
 
-  await Process.run('flutter', [
+  await _handleRun(Process.run('flutter', [
     'pub',
     'add',
     'auto_route',
@@ -44,9 +47,9 @@ void run(HookContext context) async {
     'dev:build_runner',
     'dev:theme_tailor',
     'theme_tailor_annotation',
-  ]);
+  ]));
 
-  await Process.run('rm', [
+  await _handleRun(Process.run('rm', [
     '-rf',
     '.idea',
     '.github',
@@ -64,5 +67,15 @@ void run(HookContext context) async {
     'lib/app',
     'coverage_badge.svg',
     'README.md',
-  ]);
+  ]));
+}
+
+Future<void> _handleRun(Future<ProcessResult> runFuture) async {
+  final result = await runFuture;
+
+  String? stderr = result.stderr;
+
+  if (stderr?.isNotEmpty ?? false) {
+    throw Exception(stderr);
+  }
 }
