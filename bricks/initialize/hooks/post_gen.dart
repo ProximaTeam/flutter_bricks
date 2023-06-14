@@ -12,16 +12,21 @@ Future<void> run(HookContext context) async {
   );
 
   // Icons
-  await _makeAppIcons(context);
-
-  // Splash screen
-  await _makeSplashScreen(context);
-}
-
-Future<void> _makeAppIcons(HookContext context) async {
   final iconsProgress = context.logger.progress(
     'Creating default app icons',
   );
+  await _makeAppIcons(context);
+  iconsProgress.complete();
+
+  // Splash screen
+  final splashProgress = context.logger.progress(
+    'Creating default splash screen',
+  );
+  await _makeSplashScreen(context);
+  splashProgress.complete();
+}
+
+Future<void> _makeAppIcons(HookContext context) async {
   await Process.run('flutter', [
     'pub',
     'global',
@@ -34,14 +39,12 @@ Future<void> _makeAppIcons(HookContext context) async {
     'run',
     'flutter_launcher_icons',
   ]);
-  iconsProgress.complete();
 }
 
-Future<void> _makeSplashScreen(HookContext context,
-    [int retryCount = 0]) async {
-  final splashProgress = context.logger.progress(
-    'Creating default splash screen',
-  );
+Future<void> _makeSplashScreen(
+  HookContext context, [
+  int retryCount = 0,
+]) async {
   final result = await Process.run('dart', [
     'run',
     'flutter_native_splash:create',
@@ -50,7 +53,6 @@ Future<void> _makeSplashScreen(HookContext context,
     if (retryCount > 2) {
       throw Exception(result.stderr);
     }
-    return await _makeSplashScreen(context, retryCount++);
+    return await _makeSplashScreen(context, retryCount + 1);
   }
-  splashProgress.complete();
 }
