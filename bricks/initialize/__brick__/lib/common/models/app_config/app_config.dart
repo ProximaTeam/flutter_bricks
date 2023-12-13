@@ -2,8 +2,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../app_config.freezed.dart';
-part '../app_config.g.dart';
+part 'app_config.freezed.dart';
+part 'app_config.g.dart';
 
 @freezed
 class AppConfig with _$AppConfig {
