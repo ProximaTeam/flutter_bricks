@@ -48,5 +48,4 @@ abstract class {{project_name.pascalCase()}}ApiAuth {
   @GET('/get-me')
   Future<GetMeResponse> getMe(); 
 */
- 
 }

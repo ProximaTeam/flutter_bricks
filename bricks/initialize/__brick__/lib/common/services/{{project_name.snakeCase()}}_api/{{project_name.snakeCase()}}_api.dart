@@ -31,5 +31,4 @@ abstract class {{project_name.pascalCase()}}Api {
     @Body() LoginRequest data,
   ); 
 */
- 
 }

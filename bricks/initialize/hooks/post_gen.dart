@@ -12,11 +12,7 @@ Future<void> run(HookContext context) async {
   );
 
   // Icons
-  final iconsProgress = context.logger.progress(
-    'Creating default app icons',
-  );
   await _makeAppIcons(context);
-  iconsProgress.complete();
 
   // Splash screen
   final splashProgress = context.logger.progress(
@@ -24,9 +20,15 @@ Future<void> run(HookContext context) async {
   );
   await _makeSplashScreen(context);
   splashProgress.complete();
+
+  await _runBuildRunner(context);
+  await _runDartFix(context);
 }
 
 Future<void> _makeAppIcons(HookContext context) async {
+  final iconsProgress = context.logger.progress(
+    'Creating default app icons',
+  );
   await Process.run('flutter', [
     'pub',
     'global',
@@ -39,6 +41,7 @@ Future<void> _makeAppIcons(HookContext context) async {
     'run',
     'flutter_launcher_icons',
   ]);
+  iconsProgress.complete();
 }
 
 Future<void> _makeSplashScreen(
@@ -55,4 +58,34 @@ Future<void> _makeSplashScreen(
     }
     return await _makeSplashScreen(context, retryCount + 1);
   }
+}
+
+Future<void> _runBuildRunner(HookContext context) async {
+  final buildRunnerProgress = context.logger.progress(
+    'Runing build runner...',
+  );
+  await Process.run(
+    'dart',
+    [
+      'run',
+      'build_runner',
+      'build',
+      '--delete-conflicting-outputs',
+    ],
+  );
+  buildRunnerProgress.complete();
+}
+
+Future<void> _runDartFix(HookContext context) async {
+  final dartFixProgress = context.logger.progress(
+    'Runing dart fix --apply',
+  );
+  await Process.run(
+    'dart',
+    [
+      'fix',
+      '--apply',
+    ],
+  );
+  dartFixProgress.complete();
 }
