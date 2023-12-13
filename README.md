@@ -54,8 +54,3 @@ mason make initialize
 ```
 
 For more informations refer to [brickhub docs](https://docs.brickhub.dev/).
-
-
-## TODO
-- add auto_router to initialize brick
-- add option for web to initialize brick

@@ -23,3 +23,8 @@ vars:
     description: The organization name
     default: com.example
     prompt: What is the organization name?
+  web:
+    type: boolean
+    description: Generate web folders
+    default: false
+    prompt: Add support for web?

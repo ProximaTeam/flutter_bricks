@@ -20,6 +20,7 @@ void run(HookContext context) async {
   ]));
 
   final projectFolder = context.vars['project_name'].toString().snakeCase;
+  final web = context.vars['web'] as bool;
 
   final ls = await Process.run('ls', [
     '-a',
@@ -41,12 +42,18 @@ void run(HookContext context) async {
     'flutter_native_splash',
     'freezed_annotation',
     'json_annotation',
+    'theme_tailor_annotation',
+    'flutter_secure_storage',
+    'flutter_svg',
+    'vector_graphics',
+    'dio',
+    'retrofit',
     'dev:freezed',
     'dev:json_serializable',
     'dev:auto_route_generator',
     'dev:build_runner',
     'dev:theme_tailor',
-    'theme_tailor_annotation',
+    'dev:retrofit_generator',
   ]));
 
   await _handleRun(Process.run('rm', [
@@ -60,8 +67,9 @@ void run(HookContext context) async {
     'ios/Runner/Assets.xcassets',
     projectFolder,
     'test',
-    'web',
+    if (web) 'web',
     'windows',
+    'macos',
     'lib/l10n/arb',
     'lib/counter',
     'lib/app',
