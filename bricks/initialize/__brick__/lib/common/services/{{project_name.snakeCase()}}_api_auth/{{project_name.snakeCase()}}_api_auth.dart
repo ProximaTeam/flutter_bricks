@@ -17,7 +17,7 @@ abstract class {{project_name.pascalCase()}}ApiAuth {
   static late AppConfig appConfig;
 
   static void initialize(BuildContext context) {
-    instance = Api(context.read<AppConfig>());
+    instance = {{project_name.pascalCase()}}ApiAuth(context.read<AppConfig>());
     appConfig = context.read<AppConfig>();
   }
 
