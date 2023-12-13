@@ -67,7 +67,7 @@ void run(HookContext context) async {
     'ios/Runner/Assets.xcassets',
     projectFolder,
     'test',
-    if (web) 'web',
+    if (!web) 'web',
     'windows',
     'macos',
     'lib/l10n/arb',
