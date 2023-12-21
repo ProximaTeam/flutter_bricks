@@ -54,3 +54,7 @@ mason make initialize
 ```
 
 For more informations refer to [brickhub docs](https://docs.brickhub.dev/).
+
+
+## TODO:
+- https://github.com/Frezyx/talker
