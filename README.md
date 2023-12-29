@@ -60,3 +60,4 @@ For more informations refer to [brickhub docs](https://docs.brickhub.dev/).
 - https://github.com/Frezyx/talker
 - add .mason folder to .gitignore
 - add url_strategy -> setPathUrlStrategy()
+- add build.yaml (build_runner sequence freezed -> json_serializable -> retrofit)
