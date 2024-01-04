@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 void run(HookContext context) async {
+  final veryGoodCoreProgress = context.logger.progress(
+    'Pulling very_good_core',
+  );
   await _handleRun(Process.run(
     'mason',
     [
@@ -18,6 +21,7 @@ void run(HookContext context) async {
     '--org_name',
     context.vars['org_name'],
   ]));
+  veryGoodCoreProgress.complete();
 
   final projectFolder = context.vars['project_name'].toString().snakeCase;
   final web = context.vars['web'] as bool;
@@ -34,6 +38,9 @@ void run(HookContext context) async {
     '.',
   ]);
 
+  final pubGetProgress = context.logger.progress(
+    'Running flutter pub get',
+  );
   await _handleRun(Process.run('flutter', [
     'pub',
     'add',
@@ -46,8 +53,15 @@ void run(HookContext context) async {
     'flutter_secure_storage',
     'flutter_svg',
     'vector_graphics',
+    'provider',
     'dio',
     'retrofit',
+    'talker',
+    'talker_bloc_logger',
+    'talker_dio_logger',
+    'talker_flutter',
+    'talker_logger',
+    'url_strategy',
     'dev:freezed',
     'dev:json_serializable',
     'dev:auto_route_generator',
@@ -56,6 +70,8 @@ void run(HookContext context) async {
     'dev:retrofit_generator',
   ]));
 
+  pubGetProgress.complete();
+
   await _handleRun(Process.run('rm', [
     '-rf',
     '.idea',
@@ -63,7 +79,6 @@ void run(HookContext context) async {
     'android/app/src/main/res',
     'android/app/src/development',
     'android/app/src/staging',
-    'ios/Runner.xcodeproj/project.pbxproj',
     'ios/Runner/Assets.xcassets',
     projectFolder,
     'test',
@@ -73,6 +88,10 @@ void run(HookContext context) async {
     'lib/l10n/arb',
     'lib/counter',
     'lib/app',
+    'lib/bootstrap.dart',
+    'lib/main_development.dart',
+    'lib/main_production.dart',
+    'lib/main_staging.dart',
     'coverage_badge.svg',
     'README.md',
   ]));

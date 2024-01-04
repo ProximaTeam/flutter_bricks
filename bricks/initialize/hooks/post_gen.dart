@@ -11,6 +11,11 @@ Future<void> run(HookContext context) async {
     mode: FileMode.append,
   );
 
+  await File('.gitignore').writeAsString(
+    "# The mason local folder.\n.mason",
+    mode: FileMode.append,
+  );
+
   // Icons
   await _makeAppIcons(context);
 
