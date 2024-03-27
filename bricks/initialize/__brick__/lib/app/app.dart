@@ -10,15 +10,16 @@ import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
 class App extends StatelessWidget {
   App({
-    required this.appConfig,
+    required this.config,
     super.key,
   })  : appRouter = AppRouter(),
         appStorage = AppStorage(),
         {{project_name.camelCase()}}Api = {{project_name.pascalCase()}}Api();
 
-  final AppConfig appConfig;
+  final AppConfig config;
   final AppRouter appRouter;
   final AppStorage appStorage;
+  final {{project_name.pascalCase()}}Api {{project_name.camelCase()}}Api;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class App extends StatelessWidget {
       providers: [
         ListenableProvider<AppRouter>.value(value: appRouter),
         RepositoryProvider<AppStorage>.value(value: appStorage),
-        RepositoryProvider<AppConfig>.value(value: appConfig),
+        RepositoryProvider<AppConfig>.value(value: config),
         RepositoryProvider<{{project_name.pascalCase()}}Api>.value(value: {{project_name.camelCase()}}Api),
       ],
       child: _AppInitializer(),
