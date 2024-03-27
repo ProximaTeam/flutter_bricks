@@ -16,6 +16,16 @@ Future<void> run(HookContext context) async {
     mode: FileMode.append,
   );
 
+  final iosProjectFile = await File('ios/Runner.xcodeproj/project.pbxproj');
+
+  final content = await iosProjectFile.readAsString();
+
+  await iosProjectFile.writeAsString(
+    content
+        .replaceAll('AppIcon-dev', 'AppIcon-development')
+        .replaceAll('AppIcon-stg', 'AppIcon-staging'),
+  );
+
   // Icons
   await _makeAppIcons(context);
 
