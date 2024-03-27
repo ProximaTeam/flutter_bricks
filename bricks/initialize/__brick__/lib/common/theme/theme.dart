@@ -8,7 +8,7 @@ class AppTheme {
       brightness: Brightness.light,
       extensions: [
         Colors.light,
-        Typography.typography,
+        Typography.typography(Colors.light.text),
       ],
       useMaterial3: true,
       appBarTheme: const AppBarTheme(
@@ -25,7 +25,7 @@ class AppTheme {
       brightness: Brightness.dark,
       extensions: [
         Colors.dark,
-        Typography.typography,
+        Typography.typography(Colors.dark.text),
       ],
       useMaterial3: true,
       appBarTheme: const AppBarTheme(

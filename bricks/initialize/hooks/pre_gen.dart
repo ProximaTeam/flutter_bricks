@@ -68,6 +68,7 @@ void run(HookContext context) async {
     'dev:build_runner',
     'dev:theme_tailor',
     'dev:retrofit_generator',
+    'dev:flutter_gen_runner',
   ]));
 
   pubGetProgress.complete();

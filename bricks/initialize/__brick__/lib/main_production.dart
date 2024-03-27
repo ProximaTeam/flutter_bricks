@@ -5,8 +5,8 @@ import 'package:{{project_name.snakeCase()}}/common/common.dart';
 
 void main() {
   bootstrap(
-    () => const App(
-      config: AppConfig({{project_name.camelCase()}}ApiUrl: ''),
+    () => App(
+      config: const AppConfig({{project_name.camelCase()}}ApiUrl: ''),
     ),
     talkerSettings: TalkerSettings(useConsoleLogs: false),
   );

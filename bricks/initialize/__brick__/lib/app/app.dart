@@ -9,21 +9,25 @@ import 'package:{{project_name.snakeCase()}}/common/common.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
 class App extends StatelessWidget {
-  const App({
-    required this.config,
+  App({
+    required this.appConfig,
     super.key,
-  });
+  })  : appRouter = AppRouter(),
+        appStorage = AppStorage(),
+        {{project_name.camelCase()}}Api = {{project_name.pascalCase()}}Api();
 
-  final AppConfig config;
+  final AppConfig appConfig;
+  final AppRouter appRouter;
+  final AppStorage appStorage;
 
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        ListenableProvider<AppRouter>.value(value: AppRouter()),
-        RepositoryProvider<AppStorage>.value(value: AppStorage()),
-        RepositoryProvider<AppConfig>.value(value: config),
-        RepositoryProvider<{{project_name.pascalCase()}}Api>.value(value: {{project_name.pascalCase()}}Api()),
+        ListenableProvider<AppRouter>.value(value: appRouter),
+        RepositoryProvider<AppStorage>.value(value: appStorage),
+        RepositoryProvider<AppConfig>.value(value: appConfig),
+        RepositoryProvider<{{project_name.pascalCase()}}Api>.value(value: {{project_name.camelCase()}}Api),
       ],
       child: _AppInitializer(),
     );
@@ -62,9 +66,7 @@ class _AppInitializerState extends State<_AppInitializer> {
 
     final router = context.read<AppRouter>();
 
-    return MultiBlocProvider(
-      providers: const [],
-      child: MaterialApp.router(
+    return MaterialApp.router(
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         themeMode: ThemeMode.light,
@@ -88,7 +90,6 @@ class _AppInitializerState extends State<_AppInitializer> {
             child: child ?? const SizedBox(),
           );
         },
-      ),
-    );
+      );
   }
 }
