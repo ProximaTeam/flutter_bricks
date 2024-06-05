@@ -20,6 +20,10 @@ void run(HookContext context) async {
     context.vars['project_name'],
     '--org_name',
     context.vars['org_name'],
+    '--application_id',
+    context.vars['application_id'],
+    '--description',
+    context.vars['description'],
   ]));
   veryGoodCoreProgress.complete();
 
