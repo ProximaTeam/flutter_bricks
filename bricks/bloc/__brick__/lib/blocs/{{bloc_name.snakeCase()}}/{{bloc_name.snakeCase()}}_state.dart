@@ -1,6 +1,10 @@
 part of '{{bloc_name.snakeCase()}}_bloc.dart';
 
-@immutable
-abstract class {{bloc_name.pascalCase()}}State {}
+// Run: dart run build_runner build
 
-class {{bloc_name.pascalCase()}}Initial extends {{bloc_name.pascalCase()}}State {}
+@freezed
+class {{bloc_name.pascalCase()}}State with _${{bloc_name.pascalCase()}}State {
+  const factory {{bloc_name.pascalCase()}}State.initial({
+    @Default(false) bool isInitialized,
+  }) = _Initial;
+}
