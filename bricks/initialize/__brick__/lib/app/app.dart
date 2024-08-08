@@ -19,7 +19,7 @@ class App extends StatelessWidget {
   final AppConfig config;
   final AppRouter appRouter;
   final AppStorage appStorage;
-  final {{project_name.pascalCase()}}Api {{project_name.camelCase()}}Api;
+  {{project_name.pascalCase()}}Api {{project_name.camelCase()}}Api;
 
   @override
   Widget build(BuildContext context) {
@@ -73,12 +73,11 @@ class _AppInitializerState extends State<_AppInitializer> {
         themeMode: ThemeMode.light,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        routerDelegate: router.delegate(
+        routerConfig: router.config(
           navigatorObservers: () => [
             Logger.navigatorObserver,
           ],
         ),
-        routeInformationParser: router.defaultRouteParser(),
         builder: (context, child) {
           final overlayStyle = Theme.of(context).appBarTheme.systemOverlayStyle;
 

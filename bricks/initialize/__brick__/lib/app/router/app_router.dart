@@ -11,4 +11,7 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => [];
+
+  @override
+  List<AutoRouteGuard> get guards => [];
 }
