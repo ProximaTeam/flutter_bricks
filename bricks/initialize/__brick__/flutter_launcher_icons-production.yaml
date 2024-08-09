@@ -2,6 +2,8 @@
 
 flutter_launcher_icons:
   android: "launcher_icon"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/app_icon/prod-adaptive.png"
   ios: true
   web:
     generate: {{web}}
