@@ -31,12 +31,14 @@ class App extends StatelessWidget {
         RepositoryProvider<AppConfig>.value(value: config),
         RepositoryProvider<{{project_name.pascalCase()}}Api>.value(value: {{project_name.camelCase()}}Api),
       ],
-      child: _AppInitializer(),
+      child: const _AppInitializer(),
     );
   }
 }
 
 class _AppInitializer extends StatefulWidget {
+  const _AppInitializer();
+
   @override
   State<_AppInitializer> createState() => _AppInitializerState();
 }
