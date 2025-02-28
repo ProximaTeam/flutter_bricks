@@ -11,10 +11,11 @@ import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 class App extends StatelessWidget {
   App({
     required this.config,
+    required this.appRouter,
+    required this.appStorage,
+    required this.{{project_name.camelCase()}}Api,
     super.key,
-  })  : appRouter = AppRouter(),
-        appStorage = AppStorage(),
-        {{project_name.camelCase()}}Api = {{project_name.pascalCase()}}Api();
+  });
 
   final AppConfig config;
   final AppRouter appRouter;
