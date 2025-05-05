@@ -6,7 +6,7 @@ part '{{model_name.snakeCase()}}.freezed.dart';
 part '{{model_name.snakeCase()}}.g.dart';
 
 @freezed
-class {{model_name.pascalCase()}} with _${{model_name.pascalCase()}} {
+abstract class {{model_name.pascalCase()}} with _${{model_name.pascalCase()}} {
   const factory {{model_name.pascalCase()}}({
     @JsonKey(name: 'JsonKey') required num flutterKey,
   }) = _{{model_name.pascalCase()}}Data;
