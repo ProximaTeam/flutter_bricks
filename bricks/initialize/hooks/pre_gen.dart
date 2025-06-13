@@ -14,10 +14,13 @@ void run(HookContext context) async {
     ],
   ));
 
-  final process = await Process.start('mason', [
-    'make',
-    'very_good_core',
-  ], mode: ProcessStartMode.inheritStdio)
+  final process = await Process.start(
+      'mason',
+      [
+        'make',
+        'very_good_core',
+      ],
+      mode: ProcessStartMode.inheritStdio);
 
   final exitCode = await process.exitCode;
 
