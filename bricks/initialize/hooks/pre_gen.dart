@@ -14,19 +14,21 @@ void run(HookContext context) async {
     ],
   ));
 
-  await _handleRun(Process.run('mason', [
-    'make',
-    'very_good_core',
-    '--project_name',
-    context.vars['project_name'],
-    '--org_name',
-    context.vars['org_name'],
-    '--application_id',
-    context.vars['application_id'],
-    '--description',
-    context.vars['description'],
-    '-q'
-  ]));
+  await _handleRun(Process.run(
+      'mason',
+      [
+        'make',
+        'very_good_core',
+        '--project_name',
+        context.vars['project_name'],
+        '--org_name',
+        context.vars['org_name'],
+        '--application_id',
+        context.vars['application_id'],
+        '--description',
+        context.vars['description'],
+      ],
+      runInShell: true));
   veryGoodCoreProgress.complete();
 
   final projectFolder = context.vars['project_name'].toString().snakeCase;
