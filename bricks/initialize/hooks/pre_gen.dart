@@ -6,29 +6,39 @@ void run(HookContext context) async {
   final veryGoodCoreProgress = context.logger.progress(
     'Pulling very_good_core',
   );
-  await _handleRun(Process.run(
+
+  final p1 = await Process.run(
     'mason',
     [
       'add',
       'very_good_core',
     ],
-  ));
+  );
 
-  await _handleRun(Process.run(
-      'mason',
-      [
-        'make',
-        'very_good_core',
-        '--project_name',
-        context.vars['project_name'],
-        '--org_name',
-        context.vars['org_name'],
-        '--application_id',
-        context.vars['application_id'],
-        '--description',
-        context.vars['description'],
-      ],
-      runInShell: true));
+  if (await p1.exitCode != 0) {
+    throw Exception('Mason failed to run');
+  }
+
+  final p2 = await Process.run(
+    'mason',
+    [
+      'make',
+      'very_good_core',
+      '--project_name',
+      context.vars['project_name'],
+      '--org_name',
+      context.vars['org_name'],
+      '--application_id',
+      context.vars['application_id'],
+      '--description',
+      context.vars['description'],
+    ],
+  );
+
+  if (await p2.exitCode != 0) {
+    throw Exception('Mason failed to run');
+  }
+
   veryGoodCoreProgress.complete();
 
   final projectFolder = context.vars['project_name'].toString().snakeCase;
