@@ -23,7 +23,7 @@ void run(HookContext context) async {
   stderr.addStream(process.stderr);
   stdin.pipe(process.stdin);
 
-  final exitCode = process.exitCode;
+  final exitCode = await process.exitCode;
 
   if (exitCode != 0) {
     throw Exception('Mason failed with exit code $exitCode');
