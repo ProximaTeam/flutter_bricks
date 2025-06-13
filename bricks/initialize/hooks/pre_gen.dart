@@ -14,20 +14,19 @@ void run(HookContext context) async {
     ],
   ));
 
-  final process = await Process.start(
-      'mason',
-      [
-        'make',
-        'very_good_core',
-      ],
-      mode: ProcessStartMode.inheritStdio);
-
-  final exitCode = await process.exitCode;
-
-  if (exitCode != 0) {
-    throw Exception('Mason failed with exit code $exitCode');
-  }
-
+  await _handleRun(Process.run('mason', [
+    'make',
+    'very_good_core',
+    '--project_name',
+    context.vars['project_name'],
+    '--org_name',
+    context.vars['org_name'],
+    '--application_id',
+    context.vars['application_id'],
+    '--description',
+    context.vars['description'],
+    '-q'
+  ]));
   veryGoodCoreProgress.complete();
 
   final projectFolder = context.vars['project_name'].toString().snakeCase;
