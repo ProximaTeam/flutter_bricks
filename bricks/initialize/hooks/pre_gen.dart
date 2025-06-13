@@ -17,11 +17,7 @@ void run(HookContext context) async {
   final process = await Process.start('mason', [
     'make',
     'very_good_core',
-  ]);
-
-  stdout.addStream(process.stdout);
-  stderr.addStream(process.stderr);
-  stdin.pipe(process.stdin);
+  ], mode: ProcessStartMode.inheritStdio)
 
   final exitCode = await process.exitCode;
 
