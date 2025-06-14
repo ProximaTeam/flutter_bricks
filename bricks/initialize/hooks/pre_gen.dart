@@ -15,9 +15,8 @@ void run(HookContext context) async {
     ],
   );
 
-  if (await p1.exitCode != 0) {
-    throw Exception('Mason failed to run');
-  }
+  // ignore if error - it is already added
+  await p1.exitCode;
 
   final p2 = await Process.run(
     'mason',
@@ -36,7 +35,7 @@ void run(HookContext context) async {
   );
 
   if (await p2.exitCode != 0) {
-    throw Exception('Mason failed to run');
+    throw Exception(p2.stderr);
   }
 
   veryGoodCoreProgress.complete();
