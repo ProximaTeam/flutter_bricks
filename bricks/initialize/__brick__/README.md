@@ -8,6 +8,9 @@ git clone <repo_url>
 
 # globally install mason_cli
 dart pub global activate mason_cli
+
+# fetch mason bricks
+mason get
 ```
 
 ## Using build runner
@@ -34,6 +37,8 @@ mason make bloc
 ```
 
 ## Generating icons .vec
+
+Usually it is necessary to remove al the `style` attributes from the svg file before compiling it to a vector format.
 
 ```bash
 # dart run vector_graphics_compiler -i <input_svg_path> -o <output_vec_path>

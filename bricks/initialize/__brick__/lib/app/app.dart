@@ -20,7 +20,7 @@ class App extends StatelessWidget {
   final AppConfig config;
   final AppRouter appRouter;
   final AppStorage appStorage;
-  {{project_name.pascalCase()}}Api {{project_name.camelCase()}}Api;
+  final {{project_name.pascalCase()}}Api {{project_name.camelCase()}}Api;
 
   @override
   Widget build(BuildContext context) {
