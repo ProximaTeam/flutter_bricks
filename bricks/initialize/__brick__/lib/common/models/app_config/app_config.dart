@@ -6,7 +6,7 @@ part 'app_config.freezed.dart';
 part 'app_config.g.dart';
 
 @freezed
-abstract class AppConfig with _$AppConfig {
+sealed class AppConfig with _$AppConfig {
   const factory AppConfig({
     required String {{project_name.camelCase()}}ApiUrl,
   }) = _AppConfigData;
